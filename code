@@ -1,0 +1,112 @@
+'use strict';
+
+var attestat = 0;
+var sleepLack = false;
+var learnDates = false;
+var learnFacts = false;
+var preparePlan = false;
+let timeCounter = 0;
+var cheat = false;
+let rightTasks = 0;
+var cheatDetected = false;
+
+alert('Завтра экзамен по истории. Сейчас утро воскресенья.')
+
+while (timeCounter < 2) {
+    var userChoice = parseInt(prompt('Ваши действия: (1) Играть в компьютер. (2) Учить билеты.'));
+    if (userChoice === 1) {
+        alert('Вы играли, не следя за временем.')
+        sleepLack = true;
+        break;
+    }
+    else if (userChoice === 2) {
+        var whatTo = parseInt(prompt('Что будете делать? (1) Учить даты. (2) Учить факты. (3) Проработать план ответа.'));
+        if (whatTo === 1) {
+            alert('Вы выучили даты и записали их в тетрадь.')
+            learnDates = true;
+            timeCounter++;
+        }
+        if (whatTo === 2) {
+            alert('Вы выучили факты.')
+            learnFacts = true;
+            timeCounter++;
+        }
+        if (whatTo === 3) {
+            alert('Вы подготовили план ответа. Теперь ваша речь будет собрана.')
+            preparePlan = true;
+            timeCounter++;
+        }
+        if (whatTo > 3) {
+            alert('Выбран секретный вариант сделать шпаргалки.');
+            cheat = true;
+            timeCounter++;
+        }
+        if (timeCounter === 1) alert('У Вас осталось ещё немного времени.');
+    }
+}
+
+alert('Уже поздно и вы пошли спать')
+
+alert('Вы приехали чуть раньше.')
+
+    if (learnDates == true) {
+        alert('Запомните эти даты правления (Отвечая даты, пишите только цифры без пробелов): Рюрик (862-879), Пётр I (1682-1725), Николай II (1894-1917).');
+        learnDates = false;
+    }
+    alert('Ваша очередь сдавать. Вы заходите в аудиторию и садитесь напротив Любви Ивановны.');
+    alert('"Ну, начинаем с первого вопроса: дат правления. Затем расскажешь мне пару фактов и на этом всё", - сказала Любовь Ивановна.');
+        if (learnDates == true) {
+         alert('Когда правили: Рюрик, Пётр I и Николай II?');
+         var userAnswer = parseInt(prompt('Введите без пробелов'));
+         if (userAnswer == 8628791682172518941917) {
+            rightTasks++;
+            alert('"Всё верно", - сказала она.');
+        }
+        else alert('"Такое простое задание... Но ты даже здесь ошибся", - сказала она с разочарованием.');
+    }
+    else if (learnDates == false & cheat == false) {
+        alert('Вы промолчали.');
+        alert('"Всё с тобой ясно", - промолвила Любовь Ивановна.');
+    }
+    else if (learnDates == false & cheat == true & sleepLack == false) {
+        alert('Вы ответили на все вопросы.');
+        alert('"Всё верно", - сказала Любовь Ивановна.');
+        rightTasks++;
+    }
+    else if (learnDates == false & cheat == true & sleepLack == true) {
+        alert('"Ах ты шпаргальщик... 2 в аттестат"');
+        cheatDetected = true;
+    }
+    else if (learnDates == true & cheat == true) {
+        alert('Вы ответили на все вопросы.');
+        alert('"Всё верно", - сказала Любовь Ивановна.');
+        rightTasks++;
+    }
+    if (learnFacts == true) {
+        if (preparePlan == true) {
+            alert('У Вас хорошо поставлена речь и Вы всё ответили.');
+            rightTasks++;
+            alert('"Молодец. Вижу речь у тебя поставлена", - с восхищением проговорила преподаватель.');
+        }
+        if (preparePlan == false) alert('"Ты сам хоть понимаешь, о чём говоришь? Я просто не могу такое слушать", - с гневом в голосе высказала преподаватель.');
+    }
+    else if (learnFacts == false & cheat == true & preparePlan == false) {
+        alert('Вы попытались подсмотреть второе задание, но были замечены.')
+        alert('"Ах ты шпаргальщик... 2 в аттестат"');
+        cheatDetected = true;
+        rightTasks = 0;
+    }
+    else if (preparePlan == true & cheat == true) {
+        alert('У Вас хорошо поставлена речь и Вы всё ответили.')
+        rightTasks++;
+        alert('"Молодец! Немногие смогли сдать так же хорошо", - громко сказала Любовь Ивановна, с радостным лицом.');
+    }
+    if (cheatDetected = true) attestat++;
+    else {
+        alert('"Ты не сдал", - сказала она.');
+        attestat++;
+    }
+
+if (rightTasks === 1) alert('Вы получили 4');
+if (rightTasks === 2) alert('Вы получили 5');
+else if (attestat === 1) alert('У Вас 2')
