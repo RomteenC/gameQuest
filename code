@@ -47,6 +47,8 @@ while (timeCounter < 2) {
 
 alert('Уже поздно и вы пошли спать')
 
+if (sleepLack == true) alert('У Вас недосып.');
+
 alert('Вы приехали чуть раньше.')
 
     if (learnDates == true) {
@@ -74,6 +76,7 @@ alert('Вы приехали чуть раньше.')
         rightTasks++;
     }
     else if (learnDates == false & cheat == true & sleepLack == true) {
+        alert('Вы попытались подсмотреть, но недосып дал о себе знать и вы попались.')
         alert('"Ах ты шпаргальщик... 2 в аттестат"');
         cheatDetected = true;
     }
