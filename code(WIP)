@@ -1,0 +1,51 @@
+'use strict';
+
+var attestat = 0;
+var sleepLack = false;
+var learnDates = false;
+var learnFacts = false;
+var preparePlan = false;
+var timeCounter = 0;
+var retake = false;
+var cheat = false;
+
+alert('Завтра экзамен по истории. Сейчас утро воскресенья.')
+
+while (timeCounter < 2) {
+    var userChoice = parseInt(prompt('Ваши действия: (1) Играть в компьютер. (2) Учить билеты.'));
+    if (userChoice === 1) {
+        alert('Вы играли, не следя за временем.')
+        sleepLack = true;
+        timeCounter + 2;
+    }
+    else if (userChoice === 2) {
+        var whatTo = parseInt(prompt('Что будете делать? (1) Учить даты. (2) Учить факты. (3) Проработать план ответа.'));
+        if (whatTo === 1) {
+            alert('Вы выучили даты и записали их в тетрадь.')
+            learnDates = true;
+            timeCounter++;
+        }
+        if (whatTo === 2) {
+            alert('Вы выучили факты и можете рассказать их наизусть')
+            learnFacts = true;
+            timeCounter++;
+        }
+        if (whatTo === 3) {
+            alert('Вы подготовили план ответа. Теперь ваша речь будет собрана.')
+            preparePlan = true;
+            timeCounter++;
+        }
+        if (timeCounter === 1) alert('У Вас осталось ещё немного времени.');
+        else {
+            alert('Выбран секретный вариант сделать шпаргалки.');
+            cheat = true;
+            timeCounter++;
+    }
+}
+alert('Уже поздно и вы пошли спать')
+if (timeCounter === 3) {
+    alert('Вы проспали и пойдёте на пересдачу.');
+    retake = true;
+}
+else alert('Вы приехали чуть раньше.')
+if (learnDates = true) alert('Запомните эти даты правления (Отвечая даты, пишите только цифры без пробелов через дефис): Рюрик (862-879), Пётр I (1682-1725), Николай II (1894-1917).');
