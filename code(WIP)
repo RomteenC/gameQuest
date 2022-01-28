@@ -53,7 +53,6 @@ alert('Вы приехали чуть раньше.')
 
     if (learnDates == true) {
         alert('Запомните эти даты правления (Отвечая даты, пишите только цифры без пробелов): Рюрик (862-879), Пётр I (1682-1725), Николай II (1894-1917).');
-        learnDates = false;
     }
     alert('Ваша очередь сдавать. Вы заходите в аудиторию и садитесь напротив Любви Ивановны.');
     alert('"Ну, начинаем с первого вопроса: дат правления. Затем расскажешь мне пару фактов и на этом всё", - сказала Любовь Ивановна.');
@@ -86,6 +85,7 @@ alert('Вы приехали чуть раньше.')
         rightTasks++;
     }
     if (learnFacts == true) {
+        alert('Вы начали рассказывать факты об истории.');
         if (preparePlan == true) {
             alert('У Вас хорошо поставлена речь и Вы всё ответили.');
             rightTasks++;
@@ -104,12 +104,12 @@ alert('Вы приехали чуть раньше.')
         rightTasks++;
         alert('"Молодец! Немногие смогли сдать так же хорошо", - громко сказала Любовь Ивановна, с радостным лицом.');
     }
-    if (cheatDetected = true) attestat++;
-    else {
+    if (cheatDetected = true) attestat + 2;
+    if (learnDates == false & learnFacts == false & preparePlan == false & cheat == false) {
         alert('"Ты не сдал", - сказала она.');
-        attestat++;
+        attestat + 2;
     }
 
 if (rightTasks === 1) alert('Вы получили 4');
 if (rightTasks === 2) alert('Вы получили 5');
-else if (attestat === 1) alert('У Вас 2')
+if (attestat <= 1) alert('У Вас 2')
